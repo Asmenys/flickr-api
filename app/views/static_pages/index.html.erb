@@ -1,0 +1,6 @@
+<%=form_with url:root_path, method: "GET"  do |f|%>
+<%= f.label :id, "ID:"%>
+<%=f.text_field :id%>
+<%= f.submit "Submit"%>
+<% end %>
+<%= render 'photo_widget', photo_url: @photo_url%>

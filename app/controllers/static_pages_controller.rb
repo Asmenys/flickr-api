@@ -1,16 +1,17 @@
 class StaticPagesController < ApplicationController
   def index
-    @photo_url = get_photo_url
+    @photo_url = nil
+    set_photo_url
   end
 
   private
-  def get_photo_url
+  def set_photo_url
     photo_url = nil
     user_id = get_id_from_params
     unless user_id.nil?
-      get_photo_url_from(get_random_user_photo_info_from(user_id))
+     photo_url = get_photo_url_from(get_random_user_photo_info_from(user_id))
     end
-    photo_url
+    @photo_url = photo_url
   end
 
   def get_id_from_params
@@ -27,8 +28,7 @@ class StaticPagesController < ApplicationController
   end
 
   def get_photo_url_from(photo_info)
-    p "https://www.flickr.com/photos/#{photo_info.owner}/#{photo_info.id}"
-    "https://www.flickr.com/photos/#{photo_info.owner}/#{photo_info.id}"
+    "https://live.staticflickr.com/#{photo_info.server}/#{photo_info.id}_#{photo_info.secret}.jpg"
   end
 
   def get_random_photo_index(photo_array_length)
