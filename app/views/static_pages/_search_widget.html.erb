@@ -1,0 +1,19 @@
+  <%= form_with url:root_path, method: "GET" do |query| %>
+  <div data-controller="query">
+    <div class="flex border-black border-solid border-2">
+      <div class="pr-5 pl-5 grid justify-items-center items-center" data-query-target="switch" data-action="click->query#display">
+        V
+      </div>
+      <div>
+        <%= query.text_field :tags, class: "border-solid border-black border-t-0 border-b-0 border-r-2 border-l-2" %>
+      </div>
+      <div class="pr-5 pl-5 grid justify-items-center items-center">
+        <%= query.submit "Submit" %>
+      </div>
+    </div>
+    <div class="border-black border-solid border-2" data-query-target="parameters" hidden=true>text</div>
+  </div>
+<% end %>
+<div class="border-black border-solid border-2">
+  <%= render 'photo_widget', photo_url: @photo_url%>
+</div>
