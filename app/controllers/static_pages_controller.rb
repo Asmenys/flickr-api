@@ -1,5 +1,6 @@
 class StaticPagesController < ApplicationController
-  def index = @photo_urls ||= get_photo_array
+  def index
+  end
 
   private
   def get_photo_array
@@ -7,6 +8,8 @@ class StaticPagesController < ApplicationController
   end
 
   def query_params
-    parameters.permit(:query, :query_parameters);
+    params.require(:query).permit(
+      :tags, query_parameters: [:tag_mode, :content_type]
+    )
   end
 end
