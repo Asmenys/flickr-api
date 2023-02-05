@@ -1,5 +1,10 @@
 <div class="border-solid border-black border-2 p-5 mx-auto grid gap-2">
   <%= render "search_widget"%>
   <div class="grid gap-2 grid-cols-3 auto-rows-[3] justify-items-center">
+  <% unless @photo_list.nil? || @photo_list.size == 0%>
+     <% @photo_list.each do |photo_data| %>
+      <%= image_tag Flickr.url_m(photo_data) %>
+     <% end %>
+  <% end %>
   </div>
 </div>
