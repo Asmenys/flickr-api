@@ -1,10 +1,16 @@
-<div class="border-solid border-black border-2 p-5 mx-auto grid gap-2">
-  <%= render "search_widget"%>
-  <div class="grid gap-2 grid-cols-3 auto-rows-[3] justify-items-center">
-  <% unless @photo_list.nil? || @photo_list.size == 0%>
-     <% @photo_list.each do |photo_data| %>
-      <%= image_tag Flickr.url_m(photo_data) %>
-     <% end %>
+<div data-controller = "photo" class="border-solid border-black border-2 p-5 mx-auto grid gap-2">
+  <%= render "search_widget" %>
+  <% unless @photo_list.nil? || @photo_list.size == 0 %>
+    <% current_photo_index = 0 %>
+    <% while current_photo_index < 100 %>
+      <div data-photo-target="photoPage" class="grid gap-2 grid-cols-3 auto-rows-[3] justify-items-center">
+        <% 12.times do %>
+          <% if(current_photo_index < 100) %>
+            <%= image_tag Flickr.url_m(@photo_list[current_photo_index]) %>
+          <% end %>
+          <% current_photo_index+=1 %>
+        <% end %>
+      </div>
+    <% end %>
   <% end %>
-  </div>
 </div>
