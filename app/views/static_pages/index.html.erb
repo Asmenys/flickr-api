@@ -1,16 +1,25 @@
-<div data-controller = "photo" class="border-solid border-black border-2 p-5 mx-auto grid gap-2">
+<div data-controller = "photo" class="border-solid border-black border-2 p-5 pb-2 mb-2 mx-auto grid gap-2">
+  <% page_count = 0 %>
   <%= render "search_widget" %>
   <% unless @photo_list.nil? || @photo_list.size == 0 %>
     <% current_photo_index = 0 %>
-    <% while current_photo_index < 100 %>
-      <div data-photo-target="photoPage" class="grid gap-2 grid-cols-3 auto-rows-[3] justify-items-center">
-        <% 12.times do %>
-          <% if(current_photo_index < 100) %>
-            <%= image_tag Flickr.url_m(@photo_list[current_photo_index]) %>
+    <% while current_photo_index < @photo_list.size %>
+      <div data-photo-target="photoPage" class="flex flex-wrap gap-2 justify-items-center">
+        <% 8.times do %>
+          <% if(current_photo_index < @photo_list.size) %>
+            <%= image_tag Flickr.url_m(@photo_list[current_photo_index]), :class => "border-2 border-solid border-black drop-shadow-lg" %>
           <% end %>
           <% current_photo_index+=1 %>
         <% end %>
       </div>
+      <% page_count+=1 %>
     <% end %>
   <% end %>
+  <div class = "justify-self-center flex gap-2">
+    <div data-photo-target="photoPagePrev" data-action="click->photo#prevPage"  class="w-6 h-6 border-solid border-black border-2 flex justify-center items-center"><</div>
+    <% page_count.times do |i| %>
+      <div data-photo-target="photoPageIndex" class="w-6 h-6 border-solid border-black border-2 flex justify-center items-center"><%= i+1 %></div>
+    <% end %>
+    <div data-photo-target="photoPageNext" data-action="click->photo#nextPage" class="w-6 h-6 border-solid border-black border-2 flex justify-center items-center">></div>
+  </div>
 </div>
