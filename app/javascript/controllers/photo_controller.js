@@ -14,7 +14,7 @@ export default class extends Controller {
   }
 
   displayCurrentPage() {
-    this.photoPageTargets[this.photoPageIndex].className = "grid gap-2 grid-cols-3 auto-rows-[3] justify-items-center"
+    this.photoPageTargets[this.photoPageIndex].className = "grid grid-flow-row-dense grid-rows-3 grid-cols-3 gap-2"
   }
 
   hideCurrentPage() {
