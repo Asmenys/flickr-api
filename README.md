@@ -1,24 +1,23 @@
-# README
+#Flight Booker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple web app built using the Ruby on Rails framework that allows users to book one way flights
 
-Things you may want to cover:
+## How to run the app
+  
+  > Prerequisites:
+  > * Ruby >= 3.1.2
+  > * Rails >= 7.0.3
+  > * Bundler >= 2.3.6
+  > * PostgreSQL >= 14.3
 
-* Ruby version
+  - Clone the repository.
+  - cd into the repository.
+  - run bundle install `bundle install` to install Gemfile dependencies.
+  - enter your flickr api information into the local `application.yml` file.
+  - run `./bin/dev` to start the web app locally.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Features
+  - Styling using Tailwinds css framework.
+  - Environment variable management using the ruby figaro gem.
+  - Flickr API calls using the flickr ruby gem.
+  - Improved user experience using the Stimulus JavaScript framework.
