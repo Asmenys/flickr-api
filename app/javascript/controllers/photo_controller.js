@@ -15,10 +15,12 @@ export default class extends Controller {
 
   displayCurrentPage() {
     this.photoPageTargets[this.photoPageIndex].className = "grid grid-flow-row-dense grid-rows-3 grid-cols-3 gap-2"
+    this.photoPageIndexTargets[this.photoPageIndex].className = "select-none w-6 h-6 border-solid border-2 border-gray-200 bg-sky-600 flex justify-center items-center"
   }
 
   hideCurrentPage() {
     this.photoPageTargets[this.photoPageIndex].className = "hidden"
+    this.photoPageIndexTargets[this.photoPageIndex].className = "select-none w-6 h-6 border-solid border-2 border-gray-200 bg-white flex justify-center items-center"
   }
 
   prevPage() {

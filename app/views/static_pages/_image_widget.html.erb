@@ -1,3 +1,6 @@
-<div class=" drop-shadow-lg">
-  <%= image_tag Flickr.url_q(image), :class => "border-2 border-solid border-black" %>
+<div class="drop-shadow-lg border-2 border-solid border-gray-300 bg-gray-200">
+  <%= image_tag Flickr.url_q(image), :class => "border-b-2 border-solid border-gray-100" %>
+  <div class="max-w-[150px] max-h-fit p-2">
+    <h5 class="whitespace-nowrap break-words overflow-hidden text-ellipsis text-gray-900"><%= image.title %></h5>
+  </div>
 </div>

@@ -1,36 +1,36 @@
   <%= form_with url:root_path, method: "GET" do |form| %>
   <%= form.fields_for :query do |query|%>
     <div data-controller="query">
-      <div class="flex border-black border-solid border-2">
-        <div class="pr-5 pl-5 grid justify-items-center items-center" data-query-target="parameterToggle" data-action="click->query#display">
+      <div class="flex border-gray-100 border-solid border-2 gap">
+        <div>
+          <%= query.text_field :tags, placeholder: "Tag one, tag two, tag three...", class: "border-gray-100" %>
+        </div>
+        <div class="w-24 min-w-fit grow grid justify-items-stretch items-stretch bg-sky-800 text-white font-bold">
+          <%= query.submit "Submit", :value => "Search" %>
+        </div>
+        <div class="border-l-2 border-black border-solid pr-5 pl-5 grid justify-items-center items-center bg-sky-800 text-white font-bold" data-query-target="parameterToggle" data-action="click->query#display">
           V
         </div>
-        <div>
-          <%= query.text_field :tags, placeholder: "Tag one, tag two, tag three...", class: "border-solid border-black border-t-0 border-b-0 border-r-2 border-l-2" %>
-        </div>
-        <div class="pr-5 pl-5 grid justify-items-center items-center">
-          <%= query.submit "Submit", :value => "search" %>
-        </div>
       </div>
-      <div class="mt-2 mb-2 border-black border-solid border-2" data-query-target="parameters" hidden=true>
+      <div class="" data-query-target="parameters" hidden=true>
         <div class="grid gap-2">
-          <div class="h-10 border-black border-solid border-b-2 flex gap-4 justify-center p-1">
-            <div class="w-10 border-red-900 border-solid border-2" data-query-target="slideSwitch" data-action="click->query#updateSlideState" data-query-variable="0"></div>
-            <div class="w-10 border-black border-solid border-2" data-query-target="slideSwitch" data-action="click->query#updateSlideState" data-query-variable="1"></div>
+          <div class="h-10 flex gap-4 justify-center p-1">
+            <div class="grid justify-items-center items-center w-14 bg-sky-800 border-cyan-600 border-solid border-2 font-bold text-white" data-query-target="slideSwitch" data-action="click->query#updateSlideState" data-query-variable="0">Tags</div>
+            <div class="grid justify-items-center items-center w-14 bg-sky-800 font-bold text-white" data-query-target="slideSwitch" data-action="click->query#updateSlideState" data-query-variable="1">Type</div>
           </div>
-          <div>
-            <div data-query-target="paramSlide" class="p-2 m-2 border-black border-2 border-solid">
-              <div><%= query.radio_button :tag_mode, 'any', :checked => true %> Any </div>
-              <div><%= query.radio_button :tag_mode, 'all'%> All </div>
+          <div class="bg-white">
+            <div data-query-target="paramSlide" class="p-2 m-2 ">
+              <div><%= query.radio_button :tag_mode, 'any', :class => "focus:ring-transparent", :checked => true %> Any </div>
+              <div><%= query.radio_button :tag_mode, 'all', :class => "focus:ring-transparent" %> All </div>
             </div>
-            <div hidden = true data-query-target="paramSlide" class="p-2 m-2 border-black border-2 border-solid" >
-              <div><%= query.radio_button :content_type, '1', :checked => true %> photos only </div>
-              <div><%= query.radio_button :content_type, '2' %> screenshots only </div>
-              <div><%= query.radio_button :content_type, '3' %> 'other' only </div>
-              <div><%= query.radio_button :content_type, '4' %> photos and screenshots </div>
-              <div><%= query.radio_button :content_type, '5' %> screenshots and 'other'</div>
-              <div><%= query.radio_button :content_type, '6' %> photos and 'other'</div>
-              <div><%= query.radio_button :content_type, '7' %> photos, screenshots and 'other'</div>
+            <div hidden = true data-query-target="paramSlide" class="p-2 m-2" >
+              <div><%= query.radio_button :content_type, '1', :class => "focus:ring-transparent", :checked => true %> photos only </div>
+              <div><%= query.radio_button :content_type, '2', :class => "focus:ring-transparent" %> screenshots only </div>
+              <div><%= query.radio_button :content_type, '3', :class => "focus:ring-transparent" %> 'other' only </div>
+              <div><%= query.radio_button :content_type, '4', :class => "focus:ring-transparent" %> photos and screenshots </div>
+              <div><%= query.radio_button :content_type, '5', :class => "focus:ring-transparent" %> screenshots and 'other'</div>
+              <div><%= query.radio_button :content_type, '6', :class => "focus:ring-transparent" %> photos and 'other'</div>
+              <div><%= query.radio_button :content_type, '7', :class => "focus:ring-transparent" %> photos, screenshots and 'other'</div>
             </div>
           </div>
         </div>

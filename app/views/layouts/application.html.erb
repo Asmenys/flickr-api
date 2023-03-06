@@ -6,16 +6,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-  <div class="mt-2 border-black border-solid border-b-2 grid justify-items-center">
-  <h2>The Flick</h2>
-  </div>
-    <main class="container mx-auto mt-28 px-5 flex">
+    <div class="pt-2 border-gray-300 border-solid border-b-2 grid justify-items-center font-bold text-sky-900 bg-gray-100">
+      <h2>The Flick</h2>
+    </div>
+    <main class="container mx-auto mt-16 px-5 flex">
       <%= yield %>
     </main>
   </body>

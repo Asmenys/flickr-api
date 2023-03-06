@@ -1,4 +1,4 @@
-<div data-controller = "photo" class="border-solid border-black border-2 p-5 pb-2 mb-2 mx-auto grid gap-2">
+<div data-controller = "photo" class="border-solid border-gray-200 border-2 p-5 pb-2 mb-2 mx-auto grid gap-2 bg-gray-100">
   <% page_count = 0 %>
   <%= render "search_widget" %>
   <% unless @photo_list.nil? || @photo_list.size == 0 %>
@@ -14,14 +14,14 @@
       </div>
       <% page_count+=1 %>
     <% end %>
-  <% end %>
-  <div class = "justify-self-center flex gap-2">
-    <div data-photo-target="photoPagePrev" data-action="click->photo#prevPage"  class="w-6 h-6 border-solid border-black border-2 flex justify-center items-center"><</div>
-        <% page_count.times do |i| %>
-          <div data-photo-target="photoPageIndex" class="w-6 h-6 border-solid border-black border-2 flex justify-center items-center">
-            <%= i+1 %>
-          </div>
-        <% end %>
-        <div data-photo-target="photoPageNext" data-action="click->photo#nextPage" class="w-6 h-6 border-solid border-black border-2 flex justify-center items-center">></div>
+    <div class = "justify-self-center flex gap-2">
+      <div data-photo-target="photoPagePrev" data-action="click->photo#prevPage"  class="select-none w-6 h-6 border-solid border-gray-200 border-2 flex justify-center items-center bg-sky-800 text-white font-bold"><</div>
+          <% page_count.times do |i| %>
+            <div data-photo-target="photoPageIndex" class="select-none w-6 h-6 border-solid border-2 border-gray-200 bg-white flex justify-center items-center">
+              <%= i+1 %>
+            </div>
+          <% end %>
+          <div data-photo-target="photoPageNext" data-action="click->photo#nextPage" class="select-none w-6 h-6 border-solid border-gray-200 border-2 flex justify-center items-center bg-sky-800 text-white font-bold">></div>
+        </div>
       </div>
-    </div>
+    <% end %>

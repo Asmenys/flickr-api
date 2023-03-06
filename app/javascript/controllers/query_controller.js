@@ -22,7 +22,7 @@ export default class extends Controller {
         this.slideIndex = switchIndex
     }
     resetActiveStates(switchIndex) {
-        this.slideSwitchTargets[switchIndex].className = "w-10 border-black border-solid border-2"
+        this.slideSwitchTargets[switchIndex].className = "grid justify-items-center items-center w-14 bg-sky-800 font-bold text-white"  
         this.paramSlideTargets[switchIndex].hidden = true
     }
     showSlide(slideIndex) {
@@ -30,6 +30,6 @@ export default class extends Controller {
     }
     updateSwitch(switchIndex)
     {
-        this.slideSwitchTargets[switchIndex].className = "w-10 border-red-900 border-solid border-2"
+        this.slideSwitchTargets[switchIndex].className = "grid justify-items-center items-center w-14 bg-sky-800 border-cyan-600 border-solid border-2 font-bold text-white" 
     }
 }
