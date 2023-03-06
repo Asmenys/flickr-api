@@ -1,4 +1,4 @@
-#Flight Booker
+# flickr-api
 
 A simple web app built using the Ruby on Rails framework that allows users to book one way flights
 
